@@ -10,23 +10,26 @@ final class GameTest extends TestCase
 {
   public function test_should_score_zero_for_gutter_game(): void
   {
-    $game = new Game;
-
-    for ($i = 0; $i < 20; $i++) {
-      $game->roll(0);
-    }
+    $game = $this->rollMany(20, 0);
 
     $this->assertEquals(0, $game->score());
   }
 
   public function test_should_score_twenty_for_all_ones_game(): void
   {
-    $game = new Game;
-
-    for ($i = 0; $i < 20; $i++) {
-      $game->roll(1);
-    }
+    $game = $this->rollMany(20, 1);
 
     $this->assertEquals(20, $game->score());
+  }
+
+  private function rollMany(int $rolls, int $pins): Game
+  {
+    $game = new Game;
+
+    for ($i = 0; $i < $rolls; $i++) {
+      $game->roll($pins);
+    }
+
+    return $game;
   }
 }
