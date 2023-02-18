@@ -25,7 +25,7 @@ final class Game
     $score = $frameIndex = 0;
 
     for ($frame = 0; $frame < 10; $frame++) {
-      if ($this->rolls[$frameIndex] === 10) {
+      if ($this->isStrike($frameIndex)) {
         $score += 10 + $this->strikeBonus($frameIndex);
 
         $frameIndex++;
@@ -46,6 +46,11 @@ final class Game
   private function strikeBonus(int $frameIndex): int
   {
     return $this->rolls[$frameIndex + 1] + $this->rolls[$frameIndex + 2];
+  }
+
+  private function isStrike(int $frameIndex): bool
+  {
+    return $this->rolls[$frameIndex] === 10;
   }
 
   private function spareBonus(int $frameIndex): int
