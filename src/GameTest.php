@@ -22,6 +22,19 @@ final class GameTest extends TestCase
     $this->assertEquals(20, $game->score());
   }
 
+  public function test_should_score_sixteen_with_a_spare_followed_by_a_three_ball(): void
+  {
+    $game = new Game;
+
+    $game->roll(5);
+
+    $game->roll(5);
+
+    $game->roll(3);
+
+    $this->assertEquals(16, $game->score());
+  }
+
   private function rollMany(int $rolls, int $pins): Game
   {
     $game = new Game;
