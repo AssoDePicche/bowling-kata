@@ -22,16 +22,16 @@ final class Game
 
   public function score(): int
   {
-    $score = $index = 0;
+    $score = $frameIndex = 0;
 
     for ($frame = 0; $frame < 10; $frame++) {
-      if ($this->rolls[$index] + $this->rolls[$index + 1] === 10) {
-        $score += 10 + $this->rolls[$index + 2];
+      if ($this->rolls[$frameIndex] + $this->rolls[$frameIndex + 1] === 10) {
+        $score += 10 + $this->rolls[$frameIndex + 2];
       } else {
-        $score += $this->rolls[$index] + $this->rolls[$index + 1];
+        $score += $this->rolls[$frameIndex] + $this->rolls[$frameIndex + 1];
       }
 
-      $index += 2;
+      $frameIndex += 2;
     }
 
     return $score;
