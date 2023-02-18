@@ -22,6 +22,14 @@ final class Game
 
   public function score(): int
   {
-    return array_sum($this->rolls);
+    $score = $index = 0;
+
+    for ($frame = 0; $frame < 10; $frame++) {
+      $score += $this->rolls[$index] + $this->rolls[$index + 1];
+
+      $index += 2;
+    }
+
+    return $score;
   }
 }
