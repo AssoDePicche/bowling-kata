@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App;
 
-use GMP;
 use PHPUnit\Framework\TestCase;
 
 final class GameTest extends TestCase
