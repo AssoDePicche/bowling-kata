@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App;
 
+use GMP;
 use PHPUnit\Framework\TestCase;
 
 final class GameTest extends TestCase
@@ -33,9 +34,7 @@ final class GameTest extends TestCase
 
   public function test_should_score_twenty_four_for_a_strike_followed_by_a_three_and_four_balls(): void
   {
-    $game = new Game;
-
-    $game->roll(10);
+    $game = $this->rollStrike();
 
     $game->roll(3);
 
@@ -64,6 +63,15 @@ final class GameTest extends TestCase
     $game->roll(5);
 
     $game->roll(5);
+
+    return $game;
+  }
+
+  private function rollStrike(): Game
+  {
+    $game = new Game;
+
+    $game->roll(10);
 
     return $game;
   }
