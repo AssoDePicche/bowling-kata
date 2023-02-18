@@ -6,15 +6,22 @@ namespace App;
 
 final class Game
 {
-  private int $score = 0;
+  private int $currentRoll = 0;
+
+  private array $rolls;
+
+  public function __construct()
+  {
+    $this->rolls = array_fill(0, 21, 0);
+  }
 
   public function roll(int $pins): void
   {
-    $this->score += $pins;
+    $this->rolls[$this->currentRoll++] = $pins;
   }
 
   public function score(): int
   {
-    return $this->score;
+    return array_sum($this->rolls);
   }
 }
