@@ -24,11 +24,7 @@ final class GameTest extends TestCase
 
   public function test_should_score_sixteen_with_a_spare_followed_by_a_three_ball(): void
   {
-    $game = new Game;
-
-    $game->roll(5);
-
-    $game->roll(5);
+    $game = $this->rollSpare();
 
     $game->roll(3);
 
@@ -42,6 +38,17 @@ final class GameTest extends TestCase
     for ($i = 0; $i < $rolls; $i++) {
       $game->roll($pins);
     }
+
+    return $game;
+  }
+
+  private function rollSpare(): Game
+  {
+    $game = new Game;
+
+    $game->roll(5);
+
+    $game->roll(5);
 
     return $game;
   }
