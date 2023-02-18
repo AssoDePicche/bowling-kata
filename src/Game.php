@@ -25,7 +25,11 @@ final class Game
     $score = $index = 0;
 
     for ($frame = 0; $frame < 10; $frame++) {
-      $score += $this->rolls[$index] + $this->rolls[$index + 1];
+      if ($this->rolls[$index] + $this->rolls[$index + 1] === 10) {
+        $score += 10 + $this->rolls[$index + 2];
+      } else {
+        $score += $this->rolls[$index] + $this->rolls[$index + 1];
+      }
 
       $index += 2;
     }
