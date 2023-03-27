@@ -7,3 +7,23 @@ A spare is when the player knocks down all 10 pins in two tries. The bonus for t
 A strike is when the player knocks down all 10 pins on his first try. The bonus for that frame is the value of the next two balls rolled.
 
 In the tenth frame a player who rolls a spare or strike is allowed to roll the extra balls to complete the frame. However no more than three balls can be rolled in tenth frame.
+
+## How to Install
+
+1. Clone this repository
+
+```bash
+git clone git@github.com:AssoDePicche/php-bowling-kata.git
+```
+
+2. Install the dependencies
+
+```bash
+composer install
+```
+
+## Composer Commands
+
+```bash
+composer run tests
+```
