@@ -29,15 +29,15 @@ final class Game
         $score += 10 + $this->strikeBonus($frameIndex);
 
         $frameIndex++;
-      } else if ($this->isSpare($frameIndex)) {
-        $score += 10 + $this->spareBonus($frameIndex);
 
-        $frameIndex += 2;
-      } else {
-        $score += $this->sumOfBallsInFrame($frameIndex);
-
-        $frameIndex += 2;
+        continue;
       }
+
+      $bonus = $this->isSpare($frameIndex) ? 10 + $this->spareBonus($frameIndex) : $this->sumOfBallsInFrame($frameIndex);
+
+      $score += $bonus;
+
+      $frameIndex += 2;
     }
 
     return $score;
