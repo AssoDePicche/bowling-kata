@@ -2,8 +2,6 @@
 
 declare(strict_types=1);
 
-namespace App;
-
 final class GameTest extends \PHPUnit\Framework\TestCase
 {
   private Game $game;
