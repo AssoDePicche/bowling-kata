@@ -13,7 +13,7 @@ In the tenth frame a player who rolls a spare or strike is allowed to roll the e
 1. Clone this repository
 
 ```bash
-git clone git@github.com:AssoDePicche/php-bowling-kata.git
+git clone git@github.com:AssoDePicche/bowling-kata.git
 ```
 
 2. Install the dependencies
