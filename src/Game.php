@@ -25,19 +25,9 @@ final class Game
     $score = $frameIndex = 0;
 
     for ($frame = 0; $frame < 10; $frame++) {
-      if ($this->isStrike($frameIndex)) {
-        $score += 10 + $this->strikeBonus($frameIndex);
+      $score += $this->bonus($frameIndex);
 
-        $frameIndex++;
-
-        continue;
-      }
-
-      $bonus = $this->isSpare($frameIndex) ? 10 + $this->spareBonus($frameIndex) : $this->sumOfBallsInFrame($frameIndex);
-
-      $score += $bonus;
-
-      $frameIndex += 2;
+      $frameIndex += $this->isStrike($frameIndex) ? 1 : 2;
     }
 
     return $score;
@@ -66,5 +56,16 @@ final class Game
   private function sumOfBallsInFrame(int $frameIndex): int
   {
     return $this->rolls[$frameIndex] + $this->rolls[$frameIndex + 1];
+  }
+
+  private function bonus(int $frameIndex): int
+  {
+    if ($this->isStrike($frameIndex)) {
+      return 10 + $this->strikeBonus($frameIndex);
+    }
+
+    return $this->isSpare($frameIndex) ?
+      10 + $this->spareBonus($frameIndex) :
+      $this->sumOfBallsInFrame($frameIndex);
   }
 }
