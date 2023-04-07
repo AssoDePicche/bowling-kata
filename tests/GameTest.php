@@ -2,7 +2,12 @@
 
 declare(strict_types=1);
 
-final class GameTest extends \PHPUnit\Framework\TestCase
+namespace Test;
+
+use Game;
+use PHPUnit\Framework\TestCase;
+
+final class GameTest extends TestCase
 {
   private Game $game;
 
