@@ -8,7 +8,17 @@ A strike is when the player knocks down all 10 pins on his first try. The bonus 
 
 In the tenth frame a player who rolls a spare or strike is allowed to roll the extra balls to complete the frame. However no more than three balls can be rolled in tenth frame.
 
-## How to Install
+## Project Structure
+
+1. `src:` source code
+
+2. `tests:` automated tests
+
+## Contributing
+
+To contribuit to this project [follow these steps](./CONTRIBUTING).
+
+## Getting started
 
 1. Clone this repository
 
@@ -27,3 +37,7 @@ composer install
 ```bash
 composer run tests
 ```
+
+## Get in touch
+
+Samuel do Prado Rodrigues (AssoDePicche) - samuelprado730@gmail.com
